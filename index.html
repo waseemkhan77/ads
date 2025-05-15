@@ -18,18 +18,23 @@
   </head>
   <body>
 
-    <video id="videoPlayer" class="video-js vjs-default-skin" controls width="640" height="360">
-      <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-    </video>
+  <video id="videoPlayer" class="video-js vjs-default-skin" controls autoplay muted width="640" height="360">
+</video>
 
-    <script>
-      var player = videojs('videoPlayer');
+<script>
+  var player = videojs('videoPlayer');
 
-      player.ima({
-        id: 'videoPlayer',
-        adTagUrl: 'https://s.magsrv.com/v1/vast.php?idzone=5609190'
-      });
-    </script>
+  player.ima({
+    id: 'videoPlayer',
+    adTagUrl: 'https://s.magsrv.com/v1/vast.php?idzone=5609190'
+  });
+
+  player.ready(function () {
+    player.ima.requestAds();
+    player.play();
+  });
+</script>
+
 
   </body>
 </html>
