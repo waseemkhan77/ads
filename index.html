@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>ExoClick Video Ad Example</title>
+  
+ <head>
+  <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
+  <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
+  <script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-ads@6.9.0/dist/videojs-contrib-ads.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-ima@1.10.1/dist/videojs.ima.min.js"></script>
+</head>
 
-    <!-- Client Hints Meta Tag (optional) -->
-    <meta http-equiv="Delegate-CH" content="Sec-CH-UA https://s.magsrv.com; Sec-CH-UA-Mobile https://s.magsrv.com; Sec-CH-UA-Arch https://s.magsrv.com; Sec-CH-UA-Model https://s.magsrv.com; Sec-CH-UA-Platform https://s.magsrv.com; Sec-CH-UA-Platform-Version https://s.magsrv.com; Sec-CH-UA-Bitness https://s.magsrv.com; Sec-CH-UA-Full-Version-List https://s.magsrv.com">
+<body>
+  <video id="videoPlayer" class="video-js vjs-default-skin" controls autoplay muted width="640" height="360"></video>
 
-    <!-- Video.js CDN -->
-    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
-    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+  <script>
+    var player = videojs('videoPlayer');
 
-    <!-- VAST plugin -->
-    <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-ads@6.9.0/dist/videojs-contrib-ads.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/videojs-ima@1.9.0/dist/videojs.ima.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/videojs-ima@1.9.0/dist/videojs.ima.css" rel="stylesheet" />
-  </head>
-  <body>
+    player.ima({
+      id: 'videoPlayer',
+      adTagUrl: 'https://s.magsrv.com/v1/vast.php?idzone=5609190'
+    });
 
-  <video id="videoPlayer" class="video-js vjs-default-skin" controls autoplay muted width="640" height="360">
-</video>
-
-<script>
-  var player = videojs('videoPlayer');
-
-  player.ima({
-    id: 'videoPlayer',
-    adTagUrl: 'https://s.magsrv.com/v1/vast.php?idzone=5609190'
-  });
-
-  player.ready(function () {
-    player.ima.requestAds();
-    player.play();
-  });
-</script>
+    player.ready(function () {
+      player.ima.requestAds();
+      player.play();
+    });
+  </script>
+</body>
 
 
-  </body>
+
 </html>
