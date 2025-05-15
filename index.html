@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExoClick In-Video Ad</title>
+
+  <!-- Delegate-CH Meta Tag (important for ExoClick) -->
+  <meta http-equiv="Delegate-CH" content="Sec-CH-UA https://s.magsrv.com; Sec-CH-UA-Mobile https://s.magsrv.com; Sec-CH-UA-Arch https://s.magsrv.com; Sec-CH-UA-Model https://s.magsrv.com; Sec-CH-UA-Platform https://s.magsrv.com; Sec-CH-UA-Platform-Version https://s.magsrv.com; Sec-CH-UA-Bitness https://s.magsrv.com; Sec-CH-UA-Full-Version-List https://s.magsrv.com; Sec-CH-UA-Full-Version https://s.magsrv.com;">
+  
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Your page content can go here -->
+  <h1 style="color: white;">Welcome to My Site</h1>
+
+  <!-- ExoClick In-Video Ad Script -->
+  <script type="application/javascript" src="https://ads.exoclick.com/in-video.js"></script>
+  <script type="application/javascript">
+    var adConfig = {
+      idzone: 5609190,              // 🔥 Tumhara ad zone ID
+      frequency_period: 15,         // Repeat after 15 seconds
+      close_after: 0,               // Allow close immediately
+      branding_enabled: 1,          // Show branding
+      sound_enabled: 0,             // Mute ad by default
+      on_complete: "repeat",        // Ad loops
+      vertical_align: "middle",     // Centered placement
+      width: 300,
+      height: 250
+    };
+    ExoInVideo.init(adConfig);
+  </script>
+
+</body>
+</html>
